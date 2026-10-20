@@ -31,7 +31,7 @@ const selectedFile = ref(null);
 // Obtener la lista de archivos del servidor
 const fetchFiles = async () => {
   try {
-    const response = await axios.get('http://127.0.0.1:8000/api/files/');
+    const response = await axios.get('https://backend-sumativa.onrender.com/api/files/');
     files.value = response.data;
   } catch (error) {
     console.error("Error obteniendo archivos:", error);
@@ -52,7 +52,7 @@ const submitFile = async () => {
   formData.append('file', selectedFile.value);
 
   try {
-    await axios.post('http://127.0.0.1:8000/api/files/', formData, {
+    await axios.post('https://backend-sumativa.onrender.com/api/files/', formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       }
